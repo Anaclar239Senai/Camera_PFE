@@ -3,8 +3,6 @@
 ## Integrantes
 
 - Ana Clara Carvalho
-- Estella Almeida
-- Gloria Maria
 
 ## Sobre o projeto
 
