@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frame: seu estúdio digital de fotografia.">
+
+    <title>Frame — Estúdio Digital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="app-shell">
+
+        <header class="topbar">
+            <a class="brand" href="#" aria-label="Frame - início">
+                <span class="brand-mark">
+                    <i></i><i></i><i></i><i></i>
+                </span>
+                <span>frame<span class="brand-dot">.</span></span>
+            </a>
+
+            <div class="top-actions">
+                <span class="studio-tag">
+                    <span class="status-dot"></span>
+                    ESTÚDIO DIGITAL
+                </span>
+
+                <button id="themeToggle" class="theme-toggle" type="button">
+                    <span id="themeIcon" aria-hidden="true">☾</span>
+                    <span id="themeText">Modo escuro</span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="intro">
+                <p class="eyebrow">SEU MOMENTO, SUA PERSPECTIVA</p>
+
+                <h1>Sua imagem.<br><span>Seu olhar.</span></h1>
+
+                <p class="intro-copy">
+                    Capture momentos especiais, escolha seu estilo e
+                    transforme cada fotografia em uma lembrança personalizada.
+                </p>
+            </section>
+
+            <section class="workspace">
+
+                <section class="camera-panel panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="section-kicker">01 / CAPTURA</p>
+                            <h2>Estúdio ao vivo</h2>
+                        </div>
+
+                        <span id="cameraStatus" class="status-pill">
+                            <span class="status-dot"></span>
+                            Câmera desligada
+                        </span>
+                    </div>
+
+                    <div class="viewfinder">
+                        <video id="video" autoplay playsinline muted></video>
+
+                        <div id="videoPlaceholder" class="video-placeholder">
+                            <div class="camera-symbol">▣</div>
+                            <strong>Sua próxima foto começa aqui</strong>
+                            <span>
+                                Ative a câmera para visualizar a imagem
+                                em tempo real.
+                            </span>
+                        </div>
+
+                        <div class="viewfinder-corners" aria-hidden="true">
+                            <i></i><i></i><i></i><i></i>
+                        </div>
+
+                        <div id="liveLabel" class="live-label" hidden>
+                            <span class="live-dot"></span>
+                            LIVE
+                        </div>
+                    </div>
+
+                    <div class="camera-controls">
+                        <button id="toggleCamera" class="button button-primary" type="button">
+                            <span aria-hidden="true">◉</span>
+                            <span id="toggleCameraText">Ligar câmera</span>
+                        </button>
+
+                        <button id="captureButton" class="button button-capture" type="button" disabled>
+                            <span class="capture-ring"><span></span></span>
+                            Capturar foto
+                        </button>
+                    </div>
+
+                    <div id="cameraMessage" class="message" role="status" aria-live="polite">
+                        Para começar, ligue a câmera e autorize o acesso no navegador.
+                    </div>
+                </section>
+
+                <aside class="settings-panel panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="section-kicker">02 / PERSONALIZAÇÃO</p>
+                            <h2>Detalhes da foto</h2>
+                        </div>
+                        <span class="step-number">02</span>
+                    </div>
+
+                    <label class="field-label" for="photoLabel">
+                        Identificação da captura
+                    </label>
+
+                    <input
+                        id="photoLabel"
+                        class="text-input"
+                        type="text"
+                        maxlength="60"
+                        placeholder="Ex.: Um dia especial"
+                        value="Um momento especial"
+                    >
+
+                    <p class="field-hint">
+                        O texto será incorporado à imagem final.
+                    </p>
+
+                    <p class="field-label filter-label">
+                        Escolha um efeito visual
+                    </p>
+
+                    <div class="filter-grid" role="group" aria-label="Filtros da fotografia">
+                        <button class="filter-option active" type="button" data-filter="normal" aria-pressed="true">
+                            <span class="filter-preview filter-original"></span>
+                            <span>Original</span>
+                        </button>
+
+                        <button class="filter-option" type="button" data-filter="mono" aria-pressed="false">
+                            <span class="filter-preview filter-mono"></span>
+                            <span>Preto e branco</span>
+                        </button>
+
+                        <button class="filter-option" type="button" data-filter="warm" aria-pressed="false">
+                            <span class="filter-preview filter-warm"></span>
+                            <span>Quente</span>
+                        </button>
+
+                        <button class="filter-option" type="button" data-filter="vintage" aria-pressed="false">
+                            <span class="filter-preview filter-vintage"></span>
+                            <span>Vintage</span>
+                        </button>
+                    </div>
+
+                    <div class="info-note">
+                        <span class="info-icon">✦</span>
+                        <p>
+                            A data e o horário são registrados automaticamente
+                            na fotografia.
+                        </p>
+                    </div>
+
+                    <div class="privacy-note">
+                        <span>●</span>
+                        <p>
+                            O processamento da fotografia acontece no próprio navegador.
+                        </p>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="result-section panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="section-kicker">03 / RESULTADO</p>
+                        <h2>Sua fotografia</h2>
+                    </div>
+
+                    <span id="resultBadge" class="result-badge">
+                        Aguardando captura
+                    </span>
+                </div>
+
+                <div id="emptyResult" class="empty-result">
+                    <div class="empty-icon">▧</div>
+                    <strong>Sua fotografia aparecerá aqui</strong>
+                    <span>
+                        Ative a câmera, escolha um efeito e capture sua imagem.
+                        O resultado aparecerá com os textos incorporados.
+                    </span>
+                </div>
+
+                <div id="resultContent" class="result-content" hidden>
+                    <div class="photo-frame">
+                        <canvas id="photoCanvas"></canvas>
+                    </div>
+
+                    <div class="result-actions">
+                        <div class="capture-meta">
+                            <span class="meta-label">DATA E HORA DA CAPTURA</span>
+                            <strong id="captureDate">—</strong>
+                            <span id="captureFilter" class="filter-meta">
+                                Estilo original
+                            </span>
+                        </div>
+
+                        <button id="downloadButton" class="button button-dark" type="button">
+                            ↓ Salvar imagem
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <span>FRAME<span class="brand-dot">.</span> · ESTÚDIO DIGITAL</span>
+                <span>Feito para registrar o que importa.</span>
+            </footer>
+        </main>
+    </div>
+
+    <canvas id="processingCanvas" hidden></canvas>
+</body>
+</html>
